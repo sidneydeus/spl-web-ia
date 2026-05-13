@@ -1,0 +1,133 @@
+<svg width="1400" height="900" viewBox="0 0 1400 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1400" height="900" rx="40" fill="#07101D"/>
+  <rect x="42" y="42" width="1316" height="816" rx="32" fill="#091425"/>
+  <circle cx="1120" cy="160" r="250" fill="#7000FF" fill-opacity="0.16"/>
+  <circle cx="300" cy="730" r="235" fill="#00F2FF" fill-opacity="0.14"/>
+
+  <path d="M140 178C140 147.072 165.072 122 196 122H1204C1234.93 122 1260 147.072 1260 178V722C1260 752.928 1234.93 778 1204 778H196C165.072 778 140 752.928 140 722V178Z" fill="#09101E" fill-opacity="0.88" stroke="#00F2FF" stroke-opacity="0.18"/>
+
+  <rect x="180" y="176" width="280" height="92" rx="24" fill="#0E1A2D" stroke="#00F2FF" stroke-opacity="0.25"/>
+  <text x="220" y="232" fill="#EAFBFF" font-family="Poppins, Arial, sans-serif" font-size="36" font-weight="700">Soluções</text>
+  <text x="220" y="258" fill="#00F2FF" font-family="Poppins, Arial, sans-serif" font-size="20" font-weight="600">Corporativas</text>
+
+  <!-- Logo grid -->
+  <g transform="translate(170 304)">
+    <!-- 1 Laravel -->
+    <g transform="translate(0 0)">
+      <rect width="160" height="88" rx="22" fill="#1F1236" stroke="#FF6B6B" stroke-opacity="0.35"/>
+      <g transform="translate(80 44)">
+        <polygon points="0,-24 20,-12 20,12 0,24 -20,12 -20,-12" fill="none" stroke="#FF6B6B" stroke-width="4" stroke-linejoin="round"/>
+        <polygon points="0,-14 12,-7 12,7 0,14 -12,7 -12,-7" fill="none" stroke="#FF6B6B" stroke-width="3" stroke-linejoin="round" opacity="0.9"/>
+      </g>
+    </g>
+
+    <!-- 2 Adobe Commerce -->
+    <g transform="translate(182 0)">
+      <rect width="210" height="88" rx="22" fill="#142033" stroke="#E94FB2" stroke-opacity="0.35"/>
+      <g transform="translate(105 44)">
+        <path d="M0 -22L22 -8V10L0 24L-22 10V-8Z" fill="none" stroke="#E94FB2" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M-8 -2L0 -12L8 -2L0 10Z" fill="#E94FB2" fill-opacity="0.22"/>
+      </g>
+    </g>
+
+    <!-- 3 WordPress -->
+    <g transform="translate(414 0)">
+      <rect width="170" height="88" rx="22" fill="#18243A" stroke="#FFFFFF" stroke-opacity="0.15"/>
+      <g transform="translate(85 44)">
+        <circle r="25" fill="none" stroke="#FFFFFF" stroke-opacity="0.92" stroke-width="4"/>
+        <path d="M-14 -6L-7 14L0 -8L7 14L14 -6" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+    </g>
+
+    <!-- 4 Drupal -->
+    <g transform="translate(604 0)">
+      <rect width="150" height="88" rx="22" fill="#18243A" stroke="#7FD4FF" stroke-opacity="0.35"/>
+      <g transform="translate(75 44)">
+        <path d="M0 -26C-10 -11 -24 -5 -24 10C-24 24 -12 32 0 32C12 32 24 24 24 10C24 -5 10 -11 0 -26Z" fill="none" stroke="#7FD4FF" stroke-width="4" stroke-linejoin="round"/>
+        <circle cx="0" cy="6" r="6" fill="#7FD4FF"/>
+      </g>
+    </g>
+
+    <!-- 5 NodeJS -->
+    <g transform="translate(776 0)">
+      <rect width="150" height="88" rx="22" fill="#112A25" stroke="#00F2FF" stroke-opacity="0.35"/>
+      <g transform="translate(75 44)">
+        <polygon points="0,-26 22,-13 22,13 0,26 -22,13 -22,-13" fill="none" stroke="#00F2FF" stroke-width="4" stroke-linejoin="round"/>
+        <circle cx="0" cy="0" r="6" fill="#00F2FF"/>
+        <path d="M0 -20V-6M0 6V20M-16 -10L-5 -3M5 3L16 10M-16 10L-5 3M5 -3L16 -10" stroke="#00F2FF" stroke-width="3" stroke-linecap="round"/>
+      </g>
+    </g>
+
+    <!-- 6 Vue -->
+    <g transform="translate(948 0)">
+      <rect width="130" height="88" rx="22" fill="#13203D" stroke="#42D392" stroke-opacity="0.35"/>
+      <g transform="translate(65 44)">
+        <path d="M0 24L-20 -10H-8L0 2L8 -10H20L0 24Z" fill="#42D392"/>
+        <path d="M0 14L-14 -10H-2L0 -6L2 -10H14L0 14Z" fill="#1E2D4A"/>
+      </g>
+    </g>
+
+    <!-- 7 MySQL -->
+    <g transform="translate(0 110)">
+      <rect width="150" height="88" rx="22" fill="#1B202F" stroke="#F5A623" stroke-opacity="0.35"/>
+      <g transform="translate(75 48)">
+        <path d="M-22 0C-10 -12 4 -18 18 -18C10 -6 10 6 18 18C4 18 -10 12 -22 0Z" fill="#F5A623" fill-opacity="0.22" stroke="#F5A623" stroke-width="3" stroke-linejoin="round"/>
+        <circle cx="4" cy="-2" r="2.8" fill="#F5A623"/>
+        <path d="M-6 6C2 2 8 2 16 6" stroke="#F5A623" stroke-width="3" stroke-linecap="round"/>
+      </g>
+    </g>
+
+    <!-- 8 Postgres -->
+    <g transform="translate(170 110)">
+      <rect width="170" height="88" rx="22" fill="#1A2331" stroke="#316192" stroke-opacity="0.35"/>
+      <g transform="translate(85 44)">
+        <path d="M0 -26C12 -24 18 -10 18 2C18 17 12 26 0 30C-12 26 -18 17 -18 2C-18 -10 -12 -24 0 -26Z" fill="#316192" fill-opacity="0.22" stroke="#316192" stroke-width="3"/>
+        <circle cx="-8" cy="-5" r="3" fill="#316192"/>
+        <circle cx="8" cy="-5" r="3" fill="#316192"/>
+        <path d="M-10 8C-4 14 4 14 10 8" stroke="#316192" stroke-width="3" stroke-linecap="round"/>
+      </g>
+    </g>
+
+    <!-- 9 HTML -->
+    <g transform="translate(362 110)">
+      <rect width="130" height="88" rx="22" fill="#1B2230" stroke="#E34F26" stroke-opacity="0.35"/>
+      <g transform="translate(65 44)" stroke="#E34F26" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M-18 -18L-8 18L0 22L8 18L18 -18"/>
+        <path d="M-4 -6H8"/>
+        <path d="M-11 6H11"/>
+      </g>
+    </g>
+
+    <!-- 10 CSS -->
+    <g transform="translate(512 110)">
+      <rect width="120" height="88" rx="22" fill="#1B2230" stroke="#264DE4" stroke-opacity="0.35"/>
+      <g transform="translate(60 44)">
+        <path d="M0 -26L18 -18L14 14L0 22L-14 14L-18 -18Z" fill="#264DE4" fill-opacity="0.2" stroke="#264DE4" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M-10 -6H10M-12 4H8M-4 -14H14" stroke="#264DE4" stroke-width="3" stroke-linecap="round"/>
+      </g>
+    </g>
+
+    <!-- 11 IA -->
+    <g transform="translate(652 110)">
+      <rect width="110" height="88" rx="22" fill="#112D2B" stroke="#00F2FF" stroke-opacity="0.35"/>
+      <g transform="translate(55 44)">
+        <circle r="18" fill="#00F2FF" fill-opacity="0.12" stroke="#00F2FF" stroke-width="3"/>
+        <path d="M0 -18V18M-18 0H18M-13 -13L13 13M13 -13L-13 13" stroke="#00F2FF" stroke-width="3" stroke-linecap="round"/>
+      </g>
+    </g>
+
+    <!-- 12 JavaScript -->
+    <g transform="translate(782 110)">
+      <rect width="178" height="88" rx="22" fill="#1B2230" stroke="#F7DF1E" stroke-opacity="0.35"/>
+      <g transform="translate(89 44)">
+        <rect x="-24" y="-24" width="48" height="48" rx="14" fill="#F7DF1E" fill-opacity="0.16" stroke="#F7DF1E" stroke-width="3"/>
+        <path d="M-4 -10V8C-4 14 2 18 8 18C11 18 14 17 16 15" stroke="#F7DF1E" stroke-width="4" stroke-linecap="round"/>
+        <path d="M-13 5C-10 9 -4 11 1 9" stroke="#F7DF1E" stroke-width="4" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+
+  <rect x="180" y="570" width="1040" height="138" rx="26" fill="#FFFFFF" fill-opacity="0.03" stroke="#00F2FF" stroke-opacity="0.12"/>
+  <text x="220" y="622" fill="#EAFBFF" font-family="Poppins, Arial, sans-serif" font-size="26" font-weight="600">Stack para sistemas, integrações, lojas e automação</text>
+  <text x="220" y="664" fill="#A8B7C8" font-family="Inter, Arial, sans-serif" font-size="18">Arquitetura moderna para operação, experiência e escala digital.</text>
+</svg>
