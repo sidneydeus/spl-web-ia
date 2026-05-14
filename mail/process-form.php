@@ -3,46 +3,69 @@
 
 header('Content-Type: application/json; charset=utf-8');
 
-if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+require __DIR__ . '/PHPMailer/src/Exception.php';
+require __DIR__ . '/PHPMailer/src/PHPMailer.php';
+require __DIR__ . '/PHPMailer/src/SMTP.php';
+
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
+
+function env_value(string $key, string $default = ''): string
+{
+    $value = getenv($key);
+
+    if ($value === false || $value === null || $value === '') {
+        $value = $_ENV[$key] ?? $_SERVER[$key] ?? $default;
+    }
+
+    return is_string($value) ? trim($value) : $default;
+}
+
+function json_response(bool $success, string $message, int $statusCode = 200): void
+{
+    http_response_code($statusCode);
     echo json_encode([
-        "success" => false,
-        "message" => "Método não permitido."
-    ]);
+        'success' => $success,
+        'message' => $message,
+    ], JSON_UNESCAPED_UNICODE);
     exit;
+}
+
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    json_response(false, 'Método não permitido.', 405);
 }
 
 // Sanitização
-$name    = htmlspecialchars(trim($_POST['name'] ?? ''));
-$email   = filter_var(trim($_POST['email'] ?? ''), FILTER_SANITIZE_EMAIL);
-$phone   = htmlspecialchars(trim($_POST['phone'] ?? ''));
-$service = htmlspecialchars(trim($_POST['service'] ?? ''));
-$message = htmlspecialchars(trim($_POST['message'] ?? ''));
+$name = trim(strip_tags($_POST['name'] ?? ''));
+$email = filter_var(trim($_POST['email'] ?? ''), FILTER_SANITIZE_EMAIL);
+$phone = trim(strip_tags($_POST['phone'] ?? ''));
+$service = trim(strip_tags($_POST['service'] ?? ''));
+$message = trim(strip_tags($_POST['message'] ?? ''));
 
 // Validações
 if (empty($name) || empty($email) || empty($message)) {
-    echo json_encode([
-        "success" => false,
-        "message" => "Preencha os campos obrigatórios."
-    ]);
-    exit;
+    json_response(false, 'Preencha os campos obrigatórios.', 400);
 }
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    echo json_encode([
-        "success" => false,
-        "message" => "E-mail inválido."
-    ]);
-    exit;
+    json_response(false, 'E-mail inválido.', 400);
 }
 
-// Destinatário
-$to = "contato@splweb.com.br";
+// SMTP configuration
+$smtpHost = 'smtp.hostinger.com';
+$smtpPort = 587;
+$smtpUsername = 'contato@splweb.com.br';
+$smtpPassword = 'Pray1ndt2021#';
+$smtpEncryption = PHPMailer::ENCRYPTION_STARTTLS;
+$fromEmail = 'contato@splweb.com.br';
+$fromName = 'SPL WEB';
+$to = 'contato@splweb.com.br';
 
-// Assunto
-$subject = "Novo contato do site";
+if ($smtpHost === '' || $smtpUsername === '' || $smtpPassword === '') {
+    json_response(false, 'SMTP não configurado. Defina SMTP_HOST, SMTP_USERNAME e SMTP_PASSWORD.', 500);
+}
 
-// Corpo do e-mail
-$body = "
+$body = <<<TEXT
 Novo formulário recebido:
 
 Nome: {$name}
@@ -52,27 +75,34 @@ Serviço: {$service}
 
 Mensagem:
 {$message}
-";
+TEXT;
 
-// Headers
-$headers = "From: SPL WEB <contato@splweb.com.br>\r\n";
-$headers .= "Reply-To: {$email}\r\n";
-$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+$mailer = new PHPMailer(true);
 
-// Envio
-if (@mail($to, $subject, $body, $headers)) {
+try {
+    $mailer->CharSet = PHPMailer::CHARSET_UTF8;
+    $mailer->isSMTP();
+    $mailer->Host = $smtpHost;
+    $mailer->SMTPAuth = true;
+    $mailer->Username = $smtpUsername;
+    $mailer->Password = $smtpPassword;
+    $mailer->Port = $smtpPort;
 
-    echo json_encode([
-        "success" => true,
-        "message" => "Mensagem enviada com sucesso!"
-    ]);
+    if ($smtpEncryption === PHPMailer::ENCRYPTION_SMTPS || $smtpEncryption === PHPMailer::ENCRYPTION_STARTTLS) {
+        $mailer->SMTPSecure = $smtpEncryption;
+    }
 
-} else {
+    $mailer->setFrom($fromEmail, $fromName);
+    $mailer->addAddress($to);
+    $mailer->addReplyTo($email, $name);
+    $mailer->Subject = 'Novo contato do site';
+    $mailer->isHTML(false);
+    $mailer->Body = $body;
 
-    echo json_encode([
-        "success" => false,
-        "message" => "Erro ao enviar a mensagem."
-    ]);
+    $mailer->send();
 
+    json_response(true, 'Mensagem enviada com sucesso!');
+} catch (Exception $e) {
+    json_response(false, 'Erro ao enviar a mensagem via SMTP.', 500);
 }
 ?>
